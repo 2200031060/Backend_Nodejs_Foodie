@@ -3,34 +3,33 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
     productName: {
         type: String,
-        required: true,
+        required: true
     },
     price: {
         type: String,
-        required: true,
+        required: true
     },
     category: {
         type: [{
             type: String,
-            enum: ['veg', 'non-veg'],
-        }],
+            enum: ['veg', 'non-veg']
+        }]
     },
-    image:{
-        type:String,
+    image: {
+        type: String
     },
-    bestSeller:{
-        type:String,
+    bestSeller: {
+        type: Boolean
     },
-    description:{
-        type:String,
+    description: {
+        type: String
     },
-    firm:[{
+    firm: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref:'Firm'
+        ref: 'Firm'
     }]
 });
 
-const Product = mongoose.model('Product',productSchema);
+const Product = mongoose.model('Product', productSchema);
 
 module.exports = Product
-
